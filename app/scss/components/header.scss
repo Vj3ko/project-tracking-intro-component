@@ -131,6 +131,7 @@
 
     &__link {
         color: $very-dark-blue;
+        transition: all 300ms ease-in-out;
 
         &--gray {
             color: $light-gray;
@@ -141,6 +142,7 @@
         &:focus {
             text-shadow: rem(3) rem(5) rem(3) $light-gray;
             outline: none;
+            
         }
     }
 
