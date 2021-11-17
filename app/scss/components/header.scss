@@ -1,0 +1,147 @@
+@use "../util"as *;
+@use "../globals"as *;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint("medium") {
+        margin-top: rem(60);
+    }
+
+    &__logo {
+
+
+        img {
+            display: block;
+            width: rem(25);
+            height: rem(25);
+        }
+    }
+
+    &__btns {
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        transition: all 200ms ease-in-out;
+        position: relative;
+
+        @include breakpoint("medium") {
+            display: none;
+
+        }
+
+        &--open {
+            opacity: 1;
+            transition: all 300ms ease-in-out;
+
+            &.close-menu {
+                opacity: 0;
+                transform: rotate(180deg);
+            }
+        }
+
+        &--close {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            opacity: 0;
+            transition: all 300ms ease-in-out;
+
+            &.open-menu {
+                opacity: 1;
+                transform: translate(-50%, -50%) rotate(180deg);
+            }
+
+        }
+
+        &:hover {
+            box-shadow: 0 rem(6) rem(12) rem(-3) rgba($gray-blue, 0.5);
+        }
+    }
+
+    &__nav {
+        display: flex;
+        visibility: hidden;
+        position: absolute;
+        top: rem(90);
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        text-transform: uppercase;
+        font-size: rem(20);
+        font-weight: 700;
+        font-family: $font-barlow_C;
+        letter-spacing: rem(2);
+        padding: rem(25);
+        width: 85%;
+        opacity: 0;
+        box-shadow: 0 rem(10) rem(15) rem(5) rgba($gray-blue, 0.5);
+        transition: all 300ms ease-in-out;
+
+        @include breakpoint("medium") {
+            opacity: 1;
+            visibility: visible;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            transform: initial;
+            left: initial;
+            position: initial;
+            width: initial;
+            padding: initial;
+            background: initial;
+            box-shadow: initial;
+            font-size: rem(18);
+        }
+
+
+        &--active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        a:not(:last-child) {
+            margin-bottom: rem(20);
+
+            @include breakpoint("medium") {
+                margin: 0;
+                margin-right: rem(20);
+            }
+        }
+
+        hr {
+            display: block;
+            height: rem(1);
+            width: 100%;
+            opacity: 0.3;
+            margin-bottom: rem(20);
+
+            @include breakpoint("medium") {
+                border: none;
+                border-left: 1px solid hsla(200, 10%, 50%, 100);
+                height: 50%;
+                width: rem(25);
+                margin: 0;
+            }
+        }
+    }
+
+    &__link {
+        color: $very-dark-blue;
+
+        &--gray {
+            color: $light-gray;
+            pointer-events: none;
+        }
+
+        &:hover,
+        &:focus {
+            text-shadow: rem(3) rem(5) rem(3) $light-gray;
+            outline: none;
+        }
+    }
+
+}

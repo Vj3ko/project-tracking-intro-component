@@ -1,0 +1,117 @@
+@use "../util"as *;
+@use "../globals"as *;
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: rem(80);
+
+    @include breakpoint("large") {
+        flex-direction: row;
+        margin-top: rem(120);
+    }
+
+    .img_wrapper {
+        margin-left: rem(-20);
+
+        @include breakpoint("large") {
+            order: 2;
+            width: 50%;
+            margin-top: rem(-60);
+        }
+
+        img {
+            width: 132vw;
+            max-width: 100%;
+
+            @include breakpoint("large") {
+                width: initial;
+                max-width: initial;
+            }
+        }
+    }
+
+    .article {
+
+        @include breakpoint("large") {
+            order: 1;
+        }
+
+
+        &__subtitle {
+            .bg-blue {
+                background: $very-dark-blue;
+                color: $white;
+                text-transform: uppercase;
+                font-family: $font-barlow_C;
+                font-weight: 700;
+                padding: rem(2) rem(6) rem(3) rem(8);
+                border-radius: rem(50);
+            }
+
+            .content {
+                font-size: rem(18);
+                font-weight: 400;
+                font-family: $font-barlow_C;
+                letter-spacing: rem(3);
+                text-transform: uppercase;
+                color: $gray-blue;
+                margin-left: rem(10);
+            }
+        }
+
+
+        &__title {
+            font-family: $font-barlow_C;
+            font-weight: 700;
+            font-size: rem(38);
+            color: $very-dark-blue;
+            text-transform: uppercase;
+            margin-top: rem(10);
+
+            @include breakpoint("large") {
+                font-size: rem(55);
+            }
+        }
+
+        p {
+            @include breakpoint("large") {
+                padding-right: rem(200);
+            }
+        }
+
+        &__btns {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-top: rem(30);
+            font-size: rem(12);
+            color: $gray-blue;
+            text-transform: uppercase;
+            letter-spacing: rem(1);
+
+            @include breakpoint("large") {
+                margin-top: rem(60);
+            }
+
+
+            a {
+                color: $white;
+                background: $red;
+                padding: rem(10) rem(25);
+                border-radius: rem(5);
+                cursor: pointer;
+                margin-right: rem(20);
+                transition: all 200ms ease-in-out;
+                letter-spacing: 0;
+
+                &:hover,
+                &:focus {
+                    background: $very-dark-blue;
+                    color: $red;
+                }
+            }
+        }
+
+    }
+}

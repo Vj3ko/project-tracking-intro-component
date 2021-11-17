@@ -1,0 +1,44 @@
+@use "fonts" as *;
+@use "colors" as*;
+@use "../util" as *;
+
+html {
+    font-size: 100%;
+    box-sizing:border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;    
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-family: $font-barlow;
+    font-size: rem(18);
+    position: relative;
+    
+
+    &::before {
+       content: "";
+       width: 50%;
+       height: 50%;
+       position: absolute;
+       right: 0;
+       background: $light-gray-blue;
+       z-index: -1;
+       border-bottom-left-radius: rem(70);
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: rem(50);
+    padding: rem(35);
+    max-width: calc(rem(1100) + rem(35));
+    margin: auto;
+}
